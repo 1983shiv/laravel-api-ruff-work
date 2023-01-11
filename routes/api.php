@@ -38,6 +38,12 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // })
 
+Route::get('/', function(){
+    return response()->json([
+        'message' => 'This api is only for authenticated users, if you are a authenticated user, than you must be receive a valid request api url and necessary credentials, Thanking you for visiting us.',
+    ], 200);
+});
+
 Route::get('/product', [ProductController::class, 'index']);
 Route::post('/product', [ProductController::class, 'store']);
 Route::get('/product/{id}', [ProductController::class, 'show']);
